@@ -1,40 +1,26 @@
 export default {
     app: {
-        name: "Electrobun (Playground)",
-        identifier: "dev.electrobun.playground",
+        name: "multitab-browser",
+        identifier: "multitab-browser.electrobun.dev",
         version: "0.0.1",
     },
     build: {
         bun: {
             entrypoint: "src/bun/index.ts",
             external: [],
-        },       
+        },
         views: {
             mainview: {
                 entrypoint: "src/mainview/index.ts",
-                external: [],
-            },
-            myextension: {
-                entrypoint: "src/myextension/preload.ts",
-                external: [],
-            },
-            webviewtag: {
-                entrypoint: "src/webviewtag/index.ts",
                 external: [],
             },
         },
         copy: {
             "src/mainview/index.html": "views/mainview/index.html",
             "src/mainview/index.css": "views/mainview/index.css",
-            "src/webviewtag/index.html": "views/webviewtag/index.html",
-            "src/webviewtag/electrobun.png": "views/webviewtag/electrobun.png",
-            "assets/electrobun-logo-32-template.png": "views/assets/electrobun-logo-32-template.png",
         },
         mac: {
-            codesign: false,
-            notarize: false,
             bundleCEF: true,
-            entitlements: {},
         },
         linux: {
             bundleCEF: true,
@@ -42,11 +28,5 @@ export default {
         win: {
             bundleCEF: true,
         },
-    },
-    scripts: {
-        postBuild: "./buildScript.ts",
-    },
-    release: {
-        bucketUrl: "https://static.electrobun.dev/playground/",
     },
 };
